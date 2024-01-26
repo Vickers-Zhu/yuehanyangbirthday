@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct PlayView: View {
-    var filepath: String
+    var filepath: String?
     @State private var isPlaying = false
     private let audioPlayer = AudioPlayer.shared
 

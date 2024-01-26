@@ -9,9 +9,28 @@ import SwiftUI
 
 @main
 struct yuehanyangbirthdayApp: App {
+//    @State private var memes = Meme.sampleMemes
+    @State private var memes: [Meme] = []
+    @StateObject private var store = MemeStore()
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            MemesView(memes: $memes) {
+                Task{
+                    do {
+                        print("Doing Save Action")
+                        try await store.save(memes: store.memes)
+                    } catch {
+                        fatalError(error.localizedDescription)
+                    }
+                }
+            }
+                .task {
+                    do {
+//                        try await store.load()
+                    } catch {
+//                        fatalError(error.localizedDescription)
+                    }
+                }
         }
     }
 }

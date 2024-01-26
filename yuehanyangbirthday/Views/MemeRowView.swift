@@ -8,12 +8,10 @@
 import SwiftUI
 
 struct MemeRowView: View {
-    var meme: Meme
-
-
+    @Binding var meme: Meme
     var body: some View {
         HStack {
-            meme.image
+            meme.image?
                 .resizable()
                 .frame(width: 50, height: 50)
             Text(meme.title)
@@ -26,5 +24,5 @@ struct MemeRowView: View {
 
 
 #Preview {
-    MemeRowView(meme: Meme.memes[0])
+    MemeRowView(meme: .constant(Meme.sampleMemes[0]))
 }

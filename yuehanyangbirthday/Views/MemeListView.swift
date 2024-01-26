@@ -9,23 +9,34 @@ import SwiftUI
 
 struct MemeListView: View {
     // Sample memes data
+    @Binding var memes: [Meme]
+    @State private var isPresentingNewMemeSheet = false
     
     var body: some View {
         NavigationView {
-            List(Meme.memes) { meme in
+            List($memes) { $meme in
                 NavigationLink {
-                    MemeDetail(meme: meme)
+                    MemeDetail(meme: $meme)
                 } label: {
-                    MemeRowView(meme: meme)
+                    MemeRowView(meme: $meme)
                 }
                 .navigationTitle("Memes")
-                
             }
+            .toolbar {
+                Button(action: {
+                    isPresentingNewMemeSheet = true
+                }) {
+                    Image(systemName: "plus")
+                }
+            }
+        }
+        .sheet(isPresented: $isPresentingNewMemeSheet){
+            NewMemeSheet(memes: $memes, isPresentingNewMemeSheet: $isPresentingNewMemeSheet)
         }
     }
 }
 
 
 #Preview {
-    MemeListView()
+    MemeListView(memes: .constant(Meme.sampleMemes))
 }
