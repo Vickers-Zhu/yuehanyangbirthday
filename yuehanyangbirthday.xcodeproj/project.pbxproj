@@ -28,7 +28,8 @@
 		B2A6C6502B5E3A2F0032E00E /* MemeEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2A6C64F2B5E3A2F0032E00E /* MemeEditView.swift */; };
 		B2C0782A2B627B7E0080407A /* MemeStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C078292B627B7E0080407A /* MemeStore.swift */; };
 		B2F5F1C42B5E952B00009D74 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2F5F1C32B5E952B00009D74 /* ImagePicker.swift */; };
-		B2FB03F62B67C45700C7F61A /* ZIPFoundation in Frameworks */ = {isa = PBXBuildFile; productRef = B2FB03F52B67C45700C7F61A /* ZIPFoundation */; };
+		B2FB03F82B67C55C00C7F61A /* ImExportZip.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2FB03F72B67C55C00C7F61A /* ImExportZip.swift */; };
+		B2FB03FB2B67C8C600C7F61A /* Zip in Frameworks */ = {isa = PBXBuildFile; productRef = B2FB03FA2B67C8C600C7F61A /* Zip */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,6 +55,7 @@
 		B2A6C64F2B5E3A2F0032E00E /* MemeEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemeEditView.swift; sourceTree = "<group>"; };
 		B2C078292B627B7E0080407A /* MemeStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemeStore.swift; sourceTree = "<group>"; };
 		B2F5F1C32B5E952B00009D74 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
+		B2FB03F72B67C55C00C7F61A /* ImExportZip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImExportZip.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,7 +63,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B2FB03F62B67C45700C7F61A /* ZIPFoundation in Frameworks */,
+				B2FB03FB2B67C8C600C7F61A /* Zip in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -129,6 +131,7 @@
 				B20749052B559DFF00D2C256 /* AudioPlayer.swift */,
 				B2C078292B627B7E0080407A /* MemeStore.swift */,
 				B24CEAB12B676E2200D16956 /* AudioFile.swift */,
+				B2FB03F72B67C55C00C7F61A /* ImExportZip.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -161,7 +164,7 @@
 			);
 			name = yuehanyangbirthday;
 			packageProductDependencies = (
-				B2FB03F52B67C45700C7F61A /* ZIPFoundation */,
+				B2FB03FA2B67C8C600C7F61A /* Zip */,
 			);
 			productName = yuehanyangbirthday;
 			productReference = B25448222B558BF700CE0E4D /* yuehanyangbirthday.app */;
@@ -192,7 +195,7 @@
 			);
 			mainGroup = B25448192B558BF700CE0E4D;
 			packageReferences = (
-				B2FB03F42B67C45700C7F61A /* XCRemoteSwiftPackageReference "ZIPFoundation" */,
+				B2FB03F92B67C8C600C7F61A /* XCRemoteSwiftPackageReference "Zip" */,
 			);
 			productRefGroup = B25448232B558BF700CE0E4D /* Products */;
 			projectDirPath = "";
@@ -231,6 +234,7 @@
 				B24CEAB22B676E2200D16956 /* AudioFile.swift in Sources */,
 				B20749062B559DFF00D2C256 /* AudioPlayer.swift in Sources */,
 				B2A6C6502B5E3A2F0032E00E /* MemeEditView.swift in Sources */,
+				B2FB03F82B67C55C00C7F61A /* ImExportZip.swift in Sources */,
 				B25448402B55916A00CE0E4D /* CircleImage.swift in Sources */,
 				B25448262B558BF700CE0E4D /* yuehanyangbirthdayApp.swift in Sources */,
 				B2F5F1C42B5E952B00009D74 /* ImagePicker.swift in Sources */,
@@ -446,21 +450,21 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		B2FB03F42B67C45700C7F61A /* XCRemoteSwiftPackageReference "ZIPFoundation" */ = {
+		B2FB03F92B67C8C600C7F61A /* XCRemoteSwiftPackageReference "Zip" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/weichsel/ZIPFoundation.git";
+			repositoryURL = "https://github.com/marmelroy/Zip";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 0.9.18;
+				minimumVersion = 2.1.2;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		B2FB03F52B67C45700C7F61A /* ZIPFoundation */ = {
+		B2FB03FA2B67C8C600C7F61A /* Zip */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = B2FB03F42B67C45700C7F61A /* XCRemoteSwiftPackageReference "ZIPFoundation" */;
-			productName = ZIPFoundation;
+			package = B2FB03F92B67C8C600C7F61A /* XCRemoteSwiftPackageReference "Zip" */;
+			productName = Zip;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

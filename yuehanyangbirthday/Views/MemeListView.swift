@@ -27,11 +27,21 @@ struct MemeListView: View {
 
             }
             .toolbar {
-                Button(action: {
-                    isPresentingNewMemeSheet = true
-                }) {
-                    Image(systemName: "plus")
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button(action: {
+                        isPresentingNewMemeSheet = true
+                    }) {
+                        Image(systemName: "plus")
+                    }
                 }
+                ToolbarItem(placement: .navigationBarTrailing){
+                    Button(action: {
+                        exportMemes()
+                    }) {
+                       Text("Export")
+                   }
+                }
+      
             }
         }
         .sheet(isPresented: $isPresentingNewMemeSheet){
