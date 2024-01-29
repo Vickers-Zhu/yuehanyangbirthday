@@ -28,6 +28,7 @@
 		B2A6C6502B5E3A2F0032E00E /* MemeEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2A6C64F2B5E3A2F0032E00E /* MemeEditView.swift */; };
 		B2C0782A2B627B7E0080407A /* MemeStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C078292B627B7E0080407A /* MemeStore.swift */; };
 		B2F5F1C42B5E952B00009D74 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2F5F1C32B5E952B00009D74 /* ImagePicker.swift */; };
+		B2FB03F62B67C45700C7F61A /* ZIPFoundation in Frameworks */ = {isa = PBXBuildFile; productRef = B2FB03F52B67C45700C7F61A /* ZIPFoundation */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -60,6 +61,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B2FB03F62B67C45700C7F61A /* ZIPFoundation in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -158,6 +160,9 @@
 			dependencies = (
 			);
 			name = yuehanyangbirthday;
+			packageProductDependencies = (
+				B2FB03F52B67C45700C7F61A /* ZIPFoundation */,
+			);
 			productName = yuehanyangbirthday;
 			productReference = B25448222B558BF700CE0E4D /* yuehanyangbirthday.app */;
 			productType = "com.apple.product-type.application";
@@ -186,6 +191,9 @@
 				Base,
 			);
 			mainGroup = B25448192B558BF700CE0E4D;
+			packageReferences = (
+				B2FB03F42B67C45700C7F61A /* XCRemoteSwiftPackageReference "ZIPFoundation" */,
+			);
 			productRefGroup = B25448232B558BF700CE0E4D /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -436,6 +444,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		B2FB03F42B67C45700C7F61A /* XCRemoteSwiftPackageReference "ZIPFoundation" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/weichsel/ZIPFoundation.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.9.18;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		B2FB03F52B67C45700C7F61A /* ZIPFoundation */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B2FB03F42B67C45700C7F61A /* XCRemoteSwiftPackageReference "ZIPFoundation" */;
+			productName = ZIPFoundation;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = B254481A2B558BF700CE0E4D /* Project object */;
 }
