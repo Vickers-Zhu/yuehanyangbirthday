@@ -14,10 +14,9 @@ struct yuehanyangbirthdayApp: App {
     @StateObject private var store = MemeStore()
     var body: some Scene {
         WindowGroup {
-            MemesView(memes: $memes) {
+            MemesView(memes: $store.memes) {
                 Task{
                     do {
-                        print("Doing Save Action")
                         try await store.save(memes: store.memes)
                     } catch {
                         fatalError(error.localizedDescription)
@@ -26,9 +25,9 @@ struct yuehanyangbirthdayApp: App {
             }
                 .task {
                     do {
-//                        try await store.load()
+                        try await store.load()
                     } catch {
-//                        fatalError(error.localizedDescription)
+                        fatalError(error.localizedDescription)
                     }
                 }
         }

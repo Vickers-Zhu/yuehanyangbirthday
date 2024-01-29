@@ -4,9 +4,9 @@
 //
 //  Created by Vickers Zhu on 2024/1/25.
 //
-
 import Foundation
 
+@MainActor
 class MemeStore: ObservableObject {
     @Published var memes: [Meme] = []
 

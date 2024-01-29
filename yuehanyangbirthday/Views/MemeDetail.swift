@@ -13,9 +13,10 @@ struct MemeDetail: View {
     @State private var editingMeme = Meme.emptyMeme
     @State private var isPresentingEditView = false
     @State private var isPlaying = false
+
     var body: some View {
         VStack{
-            CircleImage(image: meme.image ?? Image("defaultImage"))
+            CircleImage(image: meme.image ?? Image(systemName: "exclamationmark.triangle"))
                 .offset(y: -130)
                 .padding(.top, -40)
             VStack(alignment: .center) {

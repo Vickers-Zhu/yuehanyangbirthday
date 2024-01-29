@@ -10,7 +10,6 @@ import SwiftUI
 struct MemeEditView: View {
     @Binding var meme: Meme
     @State private var isImagePickerPresented = false
-    @State private var inputImage: UIImage?
     
     var body: some View {
         Form{
@@ -33,6 +32,7 @@ struct MemeEditView: View {
                             }
                         }
                 }
+//                TextField("👻", text: $meme.content)
             }
             Section(header: Text("选择图片")) {
                VStack {
@@ -48,6 +48,9 @@ struct MemeEditView: View {
                .onTapGesture {
                        isImagePickerPresented = true
                }
+            }
+            Section(header: Text("选择BGM")) {
+                AudioListView(audioFilePath: $meme.audioFilePath)
             }
         }
         .sheet(isPresented: $isImagePickerPresented) {

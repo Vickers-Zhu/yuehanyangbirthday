@@ -31,23 +31,33 @@ struct ImagePicker: UIViewControllerRepresentable {
         }
 
         func picker(_ picker: PHPickerViewController, didFinishPicking results: [PHPickerResult]) {
-                picker.dismiss(animated: true)
+            picker.dismiss(animated: true)
 
-                guard let provider = results.first?.itemProvider, provider.canLoadObject(ofClass: UIImage.self) else {
-                    return
-                }
+            guard let provider = results.first?.itemProvider, provider.canLoadObject(ofClass: UIImage.self) else {
+                return
+            }
 
-                provider.loadObject(ofClass: UIImage.self) { image, error in
-                    DispatchQueue.main.async {
-                        if let uiImage = image as? UIImage {
-                            // Save the image and get the file name
-                            let imageName = saveImageToDisk(uiImage)
-                            self.parent.imageName = imageName
-                        }
+            provider.loadObject(ofClass: UIImage.self) { [weak self] image, error in
+                DispatchQueue.main.async {
+                    guard let self = self, let newImage = image as? UIImage else { return }
+
+                    // Load the current image
+                    let currentImageName = self.parent.imageName
+                    if let currentImage = loadImageFromDisk(named: currentImageName),
+                       currentImage.pngData() == newImage.pngData() {
+                        // Images are the same, no action needed
+                        return
                     }
+
+                    // Different image selected, handle the change
+                    deleteImageFromDisk(named: currentImageName)
+                    let imageName = saveImageToDisk(newImage)
+                    self.parent.imageName = imageName
                 }
             }
+        }
     }
+
 }
 func saveImageToDisk(_ uiImage: UIImage) -> String {
     let imageName = UUID().uuidString + ".jpg"
@@ -77,6 +87,24 @@ func saveImageToDisk(_ uiImage: UIImage) -> String {
         return ""
     }
 }
+
+func deleteImageFromDisk(named imageName: String) {
+    let folderPath = getDocumentsDirectory().appendingPathComponent("Yue_Memes")
+    let imagePath = folderPath.appendingPathComponent(imageName)
+
+    do {
+        try FileManager.default.removeItem(at: imagePath)
+    } catch {
+        print("Error deleting image from Yue_Memes folder: \(error)")
+    }
+}
+
+func loadImageFromDisk(named imageName: String) -> UIImage? {
+    let folderPath = getDocumentsDirectory().appendingPathComponent("Yue_Memes")
+    let imagePath = folderPath.appendingPathComponent(imageName)
+    return UIImage(contentsOfFile: imagePath.path)
+}
+
 
 func getDocumentsDirectory() -> URL {
     FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]

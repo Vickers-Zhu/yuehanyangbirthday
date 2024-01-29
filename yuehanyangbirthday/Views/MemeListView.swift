@@ -14,13 +14,17 @@ struct MemeListView: View {
     
     var body: some View {
         NavigationView {
-            List($memes) { $meme in
-                NavigationLink {
-                    MemeDetail(meme: $meme)
-                } label: {
-                    MemeRowView(meme: $meme)
-                }
+            List{
+                ForEach($memes, id: \.id) { $meme in
+                      NavigationLink {
+                          MemeDetail(meme: $meme)
+                      } label: {
+                          MemeRowView(meme: $meme)
+                      }
+                  }
+                .onDelete(perform: deleteMeme)
                 .navigationTitle("Memes")
+
             }
             .toolbar {
                 Button(action: {
@@ -33,6 +37,13 @@ struct MemeListView: View {
         .sheet(isPresented: $isPresentingNewMemeSheet){
             NewMemeSheet(memes: $memes, isPresentingNewMemeSheet: $isPresentingNewMemeSheet)
         }
+    }
+    private func deleteMeme(at offsets: IndexSet) {
+        for index in offsets {
+              let meme = memes[index]
+              deleteImageFromDisk(named: meme.imageName)
+          }
+        memes.remove(atOffsets: offsets)
     }
 }
 

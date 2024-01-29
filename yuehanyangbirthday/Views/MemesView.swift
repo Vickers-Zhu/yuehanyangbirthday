@@ -14,8 +14,8 @@ struct MemesView: View {
     
     var body: some View {
         MemeListView(memes: $memes)
-            .onChange(of: scenePhase) {
-                if scenePhase == .inactive {saveAction()}
+            .onChange(of: scenePhase) { oldScenePhase, newScenePhase in
+                if newScenePhase == .inactive {saveAction()}
             }
     }
 }

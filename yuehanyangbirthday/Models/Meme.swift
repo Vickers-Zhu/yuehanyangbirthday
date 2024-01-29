@@ -18,8 +18,7 @@ struct Meme: Hashable, Codable, Identifiable {
      }
     var audioFilePath: String?
     
-    init(id: UUID = UUID(), title: String, content: String, imageName: String, audioFilePath: String? = nil) {
-        self.id = id
+    init(title: String, content: String, imageName: String, audioFilePath: String? = nil) {
         self.title = title
         self.content = content
         self.imageName = imageName
@@ -34,15 +33,11 @@ struct Meme: Hashable, Codable, Identifiable {
         }
         return Image(uiImage: uiImage)
     }
-
-    private func getDocumentsDirectory() -> URL {
-        FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
-    }
 }
 
 extension Meme {
     static var emptyMeme: Meme{
-        Meme(id: UUID(), title: "", content: "", imageName: "")
+        Meme(title: "", content: "", imageName: "")
     }
 }
 

@@ -11,6 +11,9 @@
 		B20749062B559DFF00D2C256 /* AudioPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20749052B559DFF00D2C256 /* AudioPlayer.swift */; };
 		B20749082B559E6C00D2C256 /* 熄灭.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B20749072B559E6C00D2C256 /* 熄灭.mp3 */; };
 		B207490A2B55A2B200D2C256 /* PlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20749092B55A2B200D2C256 /* PlayView.swift */; };
+		B24CEAB22B676E2200D16956 /* AudioFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = B24CEAB12B676E2200D16956 /* AudioFile.swift */; };
+		B24CEAB42B676F4200D16956 /* AudioListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B24CEAB32B676F4200D16956 /* AudioListView.swift */; };
+		B24CEAB82B6770F800D16956 /* あの夏で待ってる.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B24CEAB72B6770F800D16956 /* あの夏で待ってる.mp3 */; };
 		B25448262B558BF700CE0E4D /* yuehanyangbirthdayApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B25448252B558BF700CE0E4D /* yuehanyangbirthdayApp.swift */; };
 		B25448282B558BF700CE0E4D /* MemesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B25448272B558BF700CE0E4D /* MemesView.swift */; };
 		B254482A2B558BF800CE0E4D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B25448292B558BF800CE0E4D /* Assets.xcassets */; };
@@ -32,6 +35,9 @@
 		B20749052B559DFF00D2C256 /* AudioPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayer.swift; sourceTree = "<group>"; };
 		B20749072B559E6C00D2C256 /* 熄灭.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "熄灭.mp3"; sourceTree = "<group>"; };
 		B20749092B55A2B200D2C256 /* PlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayView.swift; sourceTree = "<group>"; };
+		B24CEAB12B676E2200D16956 /* AudioFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioFile.swift; sourceTree = "<group>"; };
+		B24CEAB32B676F4200D16956 /* AudioListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioListView.swift; sourceTree = "<group>"; };
+		B24CEAB72B6770F800D16956 /* あの夏で待ってる.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "あの夏で待ってる.mp3"; sourceTree = "<group>"; };
 		B25448222B558BF700CE0E4D /* yuehanyangbirthday.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = yuehanyangbirthday.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B25448252B558BF700CE0E4D /* yuehanyangbirthdayApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = yuehanyangbirthdayApp.swift; sourceTree = "<group>"; };
 		B25448272B558BF700CE0E4D /* MemesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemesView.swift; sourceTree = "<group>"; };
@@ -108,6 +114,7 @@
 				B20749092B55A2B200D2C256 /* PlayView.swift */,
 				B2A6C64F2B5E3A2F0032E00E /* MemeEditView.swift */,
 				B270576B2B638518006D11CB /* NewMemeSheet.swift */,
+				B24CEAB32B676F4200D16956 /* AudioListView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -119,6 +126,7 @@
 				B25448362B558D1700CE0E4D /* Meme.swift */,
 				B20749052B559DFF00D2C256 /* AudioPlayer.swift */,
 				B2C078292B627B7E0080407A /* MemeStore.swift */,
+				B24CEAB12B676E2200D16956 /* AudioFile.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -128,6 +136,7 @@
 			children = (
 				B20749072B559E6C00D2C256 /* 熄灭.mp3 */,
 				B29968E42B5CF750005EFFE9 /* Profile_Yue_Torigoe.jpg */,
+				B24CEAB72B6770F800D16956 /* あの夏で待ってる.mp3 */,
 				B254483D2B5590A700CE0E4D /* Profile_Yue_1.jpg */,
 			);
 			path = Resources;
@@ -193,6 +202,7 @@
 			files = (
 				B29968E52B5CF750005EFFE9 /* Profile_Yue_Torigoe.jpg in Resources */,
 				B254483E2B5590A700CE0E4D /* Profile_Yue_1.jpg in Resources */,
+				B24CEAB82B6770F800D16956 /* あの夏で待ってる.mp3 in Resources */,
 				B254482D2B558BF800CE0E4D /* Preview Assets.xcassets in Resources */,
 				B20749082B559E6C00D2C256 /* 熄灭.mp3 in Resources */,
 				B254482A2B558BF800CE0E4D /* Assets.xcassets in Resources */,
@@ -210,6 +220,7 @@
 				B25448282B558BF700CE0E4D /* MemesView.swift in Sources */,
 				B25448372B558D1700CE0E4D /* Meme.swift in Sources */,
 				B2C0782A2B627B7E0080407A /* MemeStore.swift in Sources */,
+				B24CEAB22B676E2200D16956 /* AudioFile.swift in Sources */,
 				B20749062B559DFF00D2C256 /* AudioPlayer.swift in Sources */,
 				B2A6C6502B5E3A2F0032E00E /* MemeEditView.swift in Sources */,
 				B25448402B55916A00CE0E4D /* CircleImage.swift in Sources */,
@@ -217,6 +228,7 @@
 				B2F5F1C42B5E952B00009D74 /* ImagePicker.swift in Sources */,
 				B207490A2B55A2B200D2C256 /* PlayView.swift in Sources */,
 				B20749042B5595D000D2C256 /* MemeDetail.swift in Sources */,
+				B24CEAB42B676F4200D16956 /* AudioListView.swift in Sources */,
 				B270576C2B638518006D11CB /* NewMemeSheet.swift in Sources */,
 				B25448422B55930A00CE0E4D /* MemeRowView.swift in Sources */,
 			);
