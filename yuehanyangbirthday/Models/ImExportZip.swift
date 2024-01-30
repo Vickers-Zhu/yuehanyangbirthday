@@ -9,11 +9,10 @@ import SwiftUI
 import UniformTypeIdentifiers
 import Zip // If using a third-party library for zipping
 
-
-
-func exportMemes() {
+func exportMemes(store: MemeStore, memes: [Meme]) async {
     let fileManager = FileManager.default
     do {
+        try await store.save(memes: memes)
         let documentsDirectory = try fileManager.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false)
         let memesDirectory = documentsDirectory.appendingPathComponent("Yue_Memes")
         let zipFilePath = documentsDirectory.appendingPathComponent("Yue_Memes.zip")
@@ -40,36 +39,36 @@ func exportMemes() {
     }
 }
 
-//func importMemes() {
-//    let documentPicker = UIDocumentPickerViewController(forOpeningContentTypes: [.archive], asCopy: true)
-//    documentPicker.delegate = documentPicker
-//    guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene else { return }
-//    guard let rootViewController = windowScene.windows.first?.rootViewController else { return }
-//    rootViewController.present(documentPicker, animated: true, completion: nil)
-//}
-//
-//func documentPicker(_ controller: UIDocumentPickerViewController, didPickDocumentsAt urls: [URL]) {
-//    guard let selectedFileURL = urls.first else { return }
-//
-//    let fileManager = FileManager.default
-//    do {
-//        let documentsDirectory = try fileManager.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false)
-//        let memesDirectory = documentsDirectory.appendingPathComponent("Yue_Memes")
-//
-//        // Remove any existing content in Yue_Memes directory
-//        if fileManager.fileExists(atPath: memesDirectory.path) {
-//            try fileManager.removeItem(at: memesDirectory)
-//        }
-//
-//        // Unzip the file
-//        try Zip.unzipFile(selectedFileURL, destination: documentsDirectory, overwrite: true, password: nil, progress: nil) { (success, error) in
-//            if success {
-//                print("Files successfully unzipped")
-//            } else if let error = error {
-//                print("Error unzipping file: \(error)")
-//            }
-//        }
-//    } catch {
-//        print("Import error: \(error)")
-//    }
-//}
+func deleteExportedZip() throws {
+    let fileManager = FileManager.default
+    let documentsDirectory = try fileManager.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false)
+    let zipFilePath = documentsDirectory.appendingPathComponent("Yue_Memes.zip")
+
+    // Remove any existing zip file
+    if fileManager.fileExists(atPath: zipFilePath.path) {
+        try fileManager.removeItem(at: zipFilePath)
+    }
+}
+
+
+
+func processImportedFile(_ url: URL, store: MemeStore) async {
+    do {
+        let fileManager = FileManager.default
+        let documentsDirectory = try fileManager.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false)
+        
+        let destination = documentsDirectory.appendingPathComponent("Yue_Memes")
+        
+        // Check if the directory exists, if so, remove it
+        if fileManager.fileExists(atPath: destination.path) {
+            try fileManager.removeItem(at: destination)
+        }
+        // Unzip the file
+        try Zip.unzipFile(url, destination: documentsDirectory, overwrite: true, password: nil, progress: nil)
+
+        // After unzipping, load the data
+        try await store.load()
+    } catch {
+        print("Error processing imported file: \(error)")
+    }
+}

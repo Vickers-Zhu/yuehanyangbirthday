@@ -23,13 +23,14 @@ struct yuehanyangbirthdayApp: App {
                     }
                 }
             }
-                .task {
-                    do {
-                        try await store.load()
-                    } catch {
-                        fatalError(error.localizedDescription)
-                    }
+            .environmentObject(store)
+            .task {
+                do {
+                    try await store.load()
+                } catch {
+                    fatalError(error.localizedDescription)
                 }
+            }
         }
     }
 }

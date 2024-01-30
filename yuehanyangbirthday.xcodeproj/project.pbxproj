@@ -23,6 +23,8 @@
 		B254483E2B5590A700CE0E4D /* Profile_Yue_1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B254483D2B5590A700CE0E4D /* Profile_Yue_1.jpg */; };
 		B25448402B55916A00CE0E4D /* CircleImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B254483F2B55916A00CE0E4D /* CircleImage.swift */; };
 		B25448422B55930A00CE0E4D /* MemeRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B25448412B55930A00CE0E4D /* MemeRowView.swift */; };
+		B25970DD2B693CA700E8EF7E /* Icon_meme.png in Resources */ = {isa = PBXBuildFile; fileRef = B25970DC2B693CA700E8EF7E /* Icon_meme.png */; };
+		B26EB9A92B68AD160020C2C7 /* ZipFilePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B26EB9A82B68AD160020C2C7 /* ZipFilePicker.swift */; };
 		B270576C2B638518006D11CB /* NewMemeSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = B270576B2B638518006D11CB /* NewMemeSheet.swift */; };
 		B29968E52B5CF750005EFFE9 /* Profile_Yue_Torigoe.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B29968E42B5CF750005EFFE9 /* Profile_Yue_Torigoe.jpg */; };
 		B2A6C6502B5E3A2F0032E00E /* MemeEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2A6C64F2B5E3A2F0032E00E /* MemeEditView.swift */; };
@@ -50,6 +52,8 @@
 		B254483D2B5590A700CE0E4D /* Profile_Yue_1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Profile_Yue_1.jpg; sourceTree = "<group>"; };
 		B254483F2B55916A00CE0E4D /* CircleImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleImage.swift; sourceTree = "<group>"; };
 		B25448412B55930A00CE0E4D /* MemeRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemeRowView.swift; sourceTree = "<group>"; };
+		B25970DC2B693CA700E8EF7E /* Icon_meme.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon_meme.png; sourceTree = "<group>"; };
+		B26EB9A82B68AD160020C2C7 /* ZipFilePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZipFilePicker.swift; sourceTree = "<group>"; };
 		B270576B2B638518006D11CB /* NewMemeSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewMemeSheet.swift; sourceTree = "<group>"; };
 		B29968E42B5CF750005EFFE9 /* Profile_Yue_Torigoe.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Profile_Yue_Torigoe.jpg; sourceTree = "<group>"; };
 		B2A6C64F2B5E3A2F0032E00E /* MemeEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemeEditView.swift; sourceTree = "<group>"; };
@@ -132,6 +136,7 @@
 				B2C078292B627B7E0080407A /* MemeStore.swift */,
 				B24CEAB12B676E2200D16956 /* AudioFile.swift */,
 				B2FB03F72B67C55C00C7F61A /* ImExportZip.swift */,
+				B26EB9A82B68AD160020C2C7 /* ZipFilePicker.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -140,9 +145,10 @@
 			isa = PBXGroup;
 			children = (
 				B20749072B559E6C00D2C256 /* 熄灭.mp3 */,
-				B29968E42B5CF750005EFFE9 /* Profile_Yue_Torigoe.jpg */,
 				B24CEAB72B6770F800D16956 /* あの夏で待ってる.mp3 */,
+				B29968E42B5CF750005EFFE9 /* Profile_Yue_Torigoe.jpg */,
 				B254483D2B5590A700CE0E4D /* Profile_Yue_1.jpg */,
+				B25970DC2B693CA700E8EF7E /* Icon_meme.png */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -212,6 +218,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B29968E52B5CF750005EFFE9 /* Profile_Yue_Torigoe.jpg in Resources */,
+				B25970DD2B693CA700E8EF7E /* Icon_meme.png in Resources */,
 				B254483E2B5590A700CE0E4D /* Profile_Yue_1.jpg in Resources */,
 				B24CEAB82B6770F800D16956 /* あの夏で待ってる.mp3 in Resources */,
 				B254482D2B558BF800CE0E4D /* Preview Assets.xcassets in Resources */,
@@ -239,6 +246,7 @@
 				B25448262B558BF700CE0E4D /* yuehanyangbirthdayApp.swift in Sources */,
 				B2F5F1C42B5E952B00009D74 /* ImagePicker.swift in Sources */,
 				B207490A2B55A2B200D2C256 /* PlayView.swift in Sources */,
+				B26EB9A92B68AD160020C2C7 /* ZipFilePicker.swift in Sources */,
 				B20749042B5595D000D2C256 /* MemeDetail.swift in Sources */,
 				B24CEAB42B676F4200D16956 /* AudioListView.swift in Sources */,
 				B270576C2B638518006D11CB /* NewMemeSheet.swift in Sources */,

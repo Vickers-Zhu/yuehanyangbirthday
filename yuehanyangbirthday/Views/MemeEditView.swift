@@ -36,6 +36,7 @@ struct MemeEditView: View {
             }
             Section(header: Text("选择图片")) {
                VStack {
+//                   TextField("asdasd", text: $meme.imageName)
                    if let image = meme.image {
                        image
                           .resizable()

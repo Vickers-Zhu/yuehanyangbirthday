@@ -4,7 +4,7 @@ import SwiftUI
 struct ImagePicker: UIViewControllerRepresentable {
     @Binding var imageName: String
     @Environment(\.presentationMode) var presentationMode
-
+    
     func makeUIViewController(context: Context) -> PHPickerViewController {
         var config = PHPickerConfiguration(photoLibrary: .shared())
         config.selectionLimit = 1
@@ -48,9 +48,11 @@ struct ImagePicker: UIViewControllerRepresentable {
                         // Images are the same, no action needed
                         return
                     }
-
-                    // Different image selected, handle the change
-                    deleteImageFromDisk(named: currentImageName)
+                    // If a different image is selected or no image was previously selected
+                    if !currentImageName.isEmpty {
+                        deleteImageFromDisk(named: currentImageName)
+                        print("Deleted old image from disk.")
+                    }                   
                     let imageName = saveImageToDisk(newImage)
                     self.parent.imageName = imageName
                 }
@@ -91,7 +93,6 @@ func saveImageToDisk(_ uiImage: UIImage) -> String {
 func deleteImageFromDisk(named imageName: String) {
     let folderPath = getDocumentsDirectory().appendingPathComponent("Yue_Memes")
     let imagePath = folderPath.appendingPathComponent(imageName)
-
     do {
         try FileManager.default.removeItem(at: imagePath)
     } catch {

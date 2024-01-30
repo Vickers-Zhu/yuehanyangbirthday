@@ -10,42 +10,18 @@ import SwiftUI
 struct MemeListView: View {
     // Sample memes data
     @Binding var memes: [Meme]
-    @State private var isPresentingNewMemeSheet = false
     
     var body: some View {
-        NavigationView {
-            List{
-                ForEach($memes, id: \.id) { $meme in
-                      NavigationLink {
-                          MemeDetail(meme: $meme)
-                      } label: {
-                          MemeRowView(meme: $meme)
-                      }
+        List{
+            ForEach($memes, id: \.id) { $meme in
+                  NavigationLink {
+                      MemeDetail(meme: $meme)
+                  } label: {
+                      MemeRowView(meme: $meme)
                   }
-                .onDelete(perform: deleteMeme)
-                .navigationTitle("Memes")
-
-            }
-            .toolbar {
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    Button(action: {
-                        isPresentingNewMemeSheet = true
-                    }) {
-                        Image(systemName: "plus")
-                    }
-                }
-                ToolbarItem(placement: .navigationBarTrailing){
-                    Button(action: {
-                        exportMemes()
-                    }) {
-                       Text("Export")
-                   }
-                }
-      
-            }
-        }
-        .sheet(isPresented: $isPresentingNewMemeSheet){
-            NewMemeSheet(memes: $memes, isPresentingNewMemeSheet: $isPresentingNewMemeSheet)
+              }
+            .onDelete(perform: deleteMeme)
+            .onMove(perform: moveMeme)
         }
     }
     private func deleteMeme(at offsets: IndexSet) {
@@ -54,6 +30,9 @@ struct MemeListView: View {
               deleteImageFromDisk(named: meme.imageName)
           }
         memes.remove(atOffsets: offsets)
+    }
+    private func moveMeme(from source: IndexSet, to destination: Int) {
+        memes.move(fromOffsets: source, toOffset: destination)
     }
 }
 
