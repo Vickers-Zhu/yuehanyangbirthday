@@ -22,7 +22,7 @@ struct NewMemeSheet: View {
                     }
                     ToolbarItem(placement: .confirmationAction) {
                         Button("保存") {
-                            memes.append(newMeme)
+                            memes.insert(newMeme, at: 0)
                             isPresentingNewMemeSheet = false
                         }
                     }
